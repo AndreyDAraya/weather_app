@@ -4,7 +4,7 @@ A application of Flutter with architecture using Clean Architecture, Mixin, Modu
 This architecture actualy used by an application in the App Store and Play Store more than 500k downloads.
 
 ## Weather Application
-![alt text](assets/app.png)
+![alt text](assets/app.png){width="300" }
 
 
 ## Mobile Architecture in Flutter
