@@ -3,6 +3,10 @@
 A application of Flutter with architecture using Clean Architecture, Mixin, Modular, Functional Programming, BloC
 This architecture actualy used by an application in the App Store and Play Store more than 500k downloads.
 
+## Weather Application
+![alt text](assets/app.png)
+
+
 ## Mobile Architecture in Flutter
 ------------------------------
 
