@@ -1,11 +1,16 @@
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:fpdart/fpdart.dart';
 import 'package:weather_app/src/utils/utils.dart';
 import 'package:weather_app/src/weather/domain/domain.dart';
 
 class ApiWeather extends WeatherRepository {
-  const ApiWeather({required this.http});
+  const ApiWeather({
+    required this.http,
+    required this.dotEnv,
+  });
 
   final MsDio http;
+  final DotEnv dotEnv;
 
   @override
   Future<Either<Failure, EWeather>> loadWeatherByLatLon({
@@ -17,7 +22,7 @@ class ApiWeather extends WeatherRepository {
       final res = await http.dio.get(
         '/data/3.0/onecall',
         queryParameters: {
-          'appid': '----',
+          'appid': dotEnv.get('API_WEATHER_KEY'),
           'exclude': 'daily,minutely,hourly',
           'lat': lat,
           'lon': lon,
@@ -46,7 +51,7 @@ class ApiWeather extends WeatherRepository {
       final res = await http.dio.get(
         '/geo/1.0/direct',
         queryParameters: {
-          'appid': '----',
+          'appid': dotEnv.get('API_WEATHER_KEY'),
           'q': cityName,
           'limit': 2,
         },

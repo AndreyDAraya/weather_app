@@ -1,3 +1,4 @@
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:weather_app/src/utils/utils.dart';
 import 'package:weather_app/src/weather/data/data.dart';
@@ -7,10 +8,15 @@ import 'package:weather_app/src/weather/presenter/presenter.dart';
 
 /// Module for weather-related dependencies and routing.
 class WeatherModule extends Module {
-  WeatherModule();
+  WeatherModule({required this.envInstance});
+
+  final DotEnv envInstance;
 
   @override
   void binds(i) {
+    ///Dependencie that Getting Enviroment Variablesz`
+    i.addSingleton(() => envInstance);
+
     ///Dependencie Injection for HTTP request
     i.addSingleton(MsDio.new);
 
